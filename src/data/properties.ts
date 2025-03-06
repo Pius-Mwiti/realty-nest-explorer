@@ -262,7 +262,7 @@ for (let i = 16; i <= 150; i++) {
   const locations = ["Westlands", "Kilimani", "Upper Hill", "South C", "South B"];
   const location = locations[Math.floor(Math.random() * locations.length)];
   
-  const propertyTypes = ["single", "bedsitter", "apartment"];
+  const propertyTypes = ["single", "bedsitter", "apartment"] as const;
   const propertyType = propertyTypes[Math.floor(Math.random() * propertyTypes.length)];
   
   let bedrooms = 1;
