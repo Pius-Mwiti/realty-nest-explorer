@@ -17,8 +17,7 @@ const FeaturedProperties = ({ properties }: FeaturedPropertiesProps) => {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Featured Properties</h2>
             <p className="text-slate-600 max-w-2xl">
-              Discover our handpicked selection of premium properties that stand out for their exceptional
-              features, locations, and value.
+              Discover our handpicked selection of premium rental properties in Nairobi's most sought-after neighborhoods.
             </p>
           </div>
           <Link 

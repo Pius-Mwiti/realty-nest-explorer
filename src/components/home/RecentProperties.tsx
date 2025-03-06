@@ -17,7 +17,7 @@ const RecentProperties = ({ properties }: RecentPropertiesProps) => {
           <div>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Latest Properties</h2>
             <p className="text-slate-600 max-w-2xl">
-              Explore our newest listings on the market, offering fresh opportunities for buyers and investors.
+              Explore our newest listings, offering fresh opportunities for affordable rental properties in prime locations.
             </p>
           </div>
           <Link 

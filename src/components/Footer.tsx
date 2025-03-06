@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Facebook, Twitter, Linkedin, Mail, Phone, MapPin } from 'lucide-react';
+import { Instagram, Facebook, Twitter, Linkedin, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
 
 const Footer = () => {
   return (
@@ -10,11 +10,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="space-y-4">
             <Link to="/" className="text-xl font-bold flex items-center">
-              <span className="text-primary">Realty</span>
-              <span className="text-foreground">Nest</span>
+              <span className="text-primary">Smart</span>
+              <span className="text-foreground">Homes</span>
             </Link>
             <p className="text-muted-foreground">
-              Discovering exceptional properties tailored to your lifestyle and aspirations.
+              Finding you quality and affordable rental properties in Nairobi's prime locations.
             </p>
             <div className="flex space-x-4 pt-2">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -33,43 +33,37 @@ const Footer = () => {
           </div>
           
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Quick Links</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Property Types</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/" className="text-muted-foreground hover:text-primary transition-colors">Home</Link>
+                <Link to="/properties?propertyType=single" className="text-muted-foreground hover:text-primary transition-colors">Single Rooms</Link>
               </li>
               <li>
-                <Link to="/properties" className="text-muted-foreground hover:text-primary transition-colors">Properties</Link>
+                <Link to="/properties?propertyType=bedsitter" className="text-muted-foreground hover:text-primary transition-colors">Bedsitters</Link>
               </li>
               <li>
-                <Link to="/about" className="text-muted-foreground hover:text-primary transition-colors">About Us</Link>
-              </li>
-              <li>
-                <Link to="/contact" className="text-muted-foreground hover:text-primary transition-colors">Contact</Link>
-              </li>
-              <li>
-                <Link to="/saved" className="text-muted-foreground hover:text-primary transition-colors">Saved Properties</Link>
+                <Link to="/properties?propertyType=apartment" className="text-muted-foreground hover:text-primary transition-colors">Apartments</Link>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Property Types</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider mb-4">Locations</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/properties?type=residential" className="text-muted-foreground hover:text-primary transition-colors">Residential</Link>
+                <Link to="/properties?location=Westlands" className="text-muted-foreground hover:text-primary transition-colors">Westlands</Link>
               </li>
               <li>
-                <Link to="/properties?type=commercial" className="text-muted-foreground hover:text-primary transition-colors">Commercial</Link>
+                <Link to="/properties?location=Kilimani" className="text-muted-foreground hover:text-primary transition-colors">Kilimani</Link>
               </li>
               <li>
-                <Link to="/properties?type=luxury" className="text-muted-foreground hover:text-primary transition-colors">Luxury</Link>
+                <Link to="/properties?location=Upper Hill" className="text-muted-foreground hover:text-primary transition-colors">Upper Hill</Link>
               </li>
               <li>
-                <Link to="/properties?type=land" className="text-muted-foreground hover:text-primary transition-colors">Land</Link>
+                <Link to="/properties?location=South C" className="text-muted-foreground hover:text-primary transition-colors">South C</Link>
               </li>
               <li>
-                <Link to="/properties?type=rental" className="text-muted-foreground hover:text-primary transition-colors">Rental</Link>
+                <Link to="/properties?location=South B" className="text-muted-foreground hover:text-primary transition-colors">South B</Link>
               </li>
             </ul>
           </div>
@@ -79,26 +73,29 @@ const Footer = () => {
             <ul className="space-y-3">
               <li className="flex items-start">
                 <MapPin size={18} className="mr-2 text-primary shrink-0 mt-0.5" />
-                <span className="text-muted-foreground">123 Property Lane, Real Estate City, RE 12345</span>
+                <span className="text-muted-foreground">Nairobi, Kenya</span>
               </li>
               <li className="flex items-center">
                 <Phone size={18} className="mr-2 text-primary" />
-                <a href="tel:+1234567890" className="text-muted-foreground hover:text-primary transition-colors">+1 (234) 567-890</a>
+                <a href="tel:+254708333761" className="text-muted-foreground hover:text-primary transition-colors">0708333761</a>
               </li>
               <li className="flex items-center">
                 <Mail size={18} className="mr-2 text-primary" />
-                <a href="mailto:info@realtynest.com" className="text-muted-foreground hover:text-primary transition-colors">info@realtynest.com</a>
+                <a href="mailto:daviszack043@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">daviszack043@gmail.com</a>
+              </li>
+              <li className="flex items-center">
+                <MessageCircle size={18} className="mr-2 text-primary" />
+                <a href="https://wa.me/254708333761" className="text-muted-foreground hover:text-primary transition-colors">WhatsApp</a>
               </li>
             </ul>
           </div>
         </div>
         
         <div className="pt-8 mt-8 border-t border-slate-200 text-sm text-center text-muted-foreground">
-          <p>&copy; {new Date().getFullYear()} RealtyNest. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} Smart Homes Real Estate. All rights reserved.</p>
           <div className="flex justify-center space-x-6 mt-4">
             <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
-            <Link to="/sitemap" className="hover:text-primary transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>
