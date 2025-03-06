@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { MapPin, BedDouble, Bath, Square, Building, Phone, Mail, Heart, MessageCircle } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { MapPin, BedDouble, Bath, Square, Building, Heart, MessageCircle, Mail, Phone } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { Button } from './ui/button';
 
 export interface PropertyType {
   id: string;
@@ -15,7 +16,7 @@ export interface PropertyType {
   image: string;
   featured?: boolean;
   type: 'sale' | 'rent';
-  propertyType: 'single' | 'bedsitter' | 'apartment' | 'house' | 'townhouse' | 'land' | 'commercial';
+  propertyType: 'single' | 'bedsitter' | 'apartment' | 'house' | 'townhouse' | 'studio' | 'commercial';
   location: string;
   description?: string;
   floor?: number;
@@ -31,6 +32,7 @@ interface PropertyCardProps {
 
 const PropertyCard = ({ property, className, featured = false, style }: PropertyCardProps) => {
   const [isSaved, setIsSaved] = useState(false);
+  const navigate = useNavigate();
   
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-KE', {
@@ -61,11 +63,30 @@ const PropertyCard = ({ property, className, featured = false, style }: Property
     return `mailto:daviszack043@gmail.com?subject=${subject}&body=${body}`;
   };
 
+  const handlePropertyClick = () => {
+    navigate(`/property/${property.id}`);
+  };
+
+  const handleContactClick = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    navigate(`/contact`, { 
+      state: { 
+        propertyInfo: {
+          id: property.id,
+          title: property.title,
+          location: property.location,
+          price: property.price,
+          propertyType: property.propertyType
+        } 
+      } 
+    });
+  };
+
   return (
-    <Link 
-      to={`/property/${property.id}`}
+    <div 
+      onClick={handlePropertyClick}
       className={cn(
-        "group flex flex-col overflow-hidden rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300",
+        "group flex flex-col overflow-hidden rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300 cursor-pointer",
         featured ? "md:col-span-2" : "",
         className
       )}
@@ -140,29 +161,37 @@ const PropertyCard = ({ property, className, featured = false, style }: Property
           </p>
         </div>
         <div className="flex flex-col gap-2 mt-4">
-          <a 
-            href={getWhatsAppLink(property)}
-            onClick={(e) => e.stopPropagation()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-2 rounded transition-colors"
+          <Button 
+            onClick={handleContactClick}
+            className="w-full bg-primary hover:bg-primary/90 text-white"
           >
-            <MessageCircle className="h-4 w-4" />
-            <span>WhatsApp (0708333761)</span>
-          </a>
-          <a 
-            href={getEmailLink(property)}
-            onClick={(e) => e.stopPropagation()}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded transition-colors"
-          >
-            <Mail className="h-4 w-4" />
-            <span>Email Inquiry</span>
-          </a>
+            Contact Us
+          </Button>
+          <div className="flex gap-2">
+            <a 
+              href={getWhatsAppLink(property)}
+              onClick={(e) => e.stopPropagation()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white py-2 rounded transition-colors"
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span className="text-sm">WhatsApp</span>
+            </a>
+            <a 
+              href={getEmailLink(property)}
+              onClick={(e) => e.stopPropagation()}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 bg-blue-500 hover:bg-blue-600 text-white py-2 rounded transition-colors"
+            >
+              <Mail className="h-4 w-4" />
+              <span className="text-sm">Email</span>
+            </a>
+          </div>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

@@ -56,8 +56,8 @@ const Header = () => {
             to="/" 
             className="text-xl font-bold flex items-center"
           >
-            <span className="text-primary">Realty</span>
-            <span className="text-foreground">Nest</span>
+            <span className="text-primary">SMART HOMES</span>
+            <span className="text-foreground ml-1">Real Estate</span>
           </Link>
 
           {/* Desktop Navigation */}
