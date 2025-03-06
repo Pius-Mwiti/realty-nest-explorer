@@ -22,9 +22,10 @@ interface PropertyCardProps {
   property: PropertyType;
   className?: string;
   featured?: boolean;
+  style?: React.CSSProperties;
 }
 
-const PropertyCard = ({ property, className, featured = false }: PropertyCardProps) => {
+const PropertyCard = ({ property, className, featured = false, style }: PropertyCardProps) => {
   const [isSaved, setIsSaved] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   
@@ -50,6 +51,7 @@ const PropertyCard = ({ property, className, featured = false }: PropertyCardPro
         featured ? "md:col-span-2" : "",
         className
       )}
+      style={style}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
