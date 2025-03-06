@@ -27,7 +27,6 @@ interface PropertyCardProps {
 
 const PropertyCard = ({ property, className, featured = false, style }: PropertyCardProps) => {
   const [isSaved, setIsSaved] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('en-US', {
@@ -47,78 +46,78 @@ const PropertyCard = ({ property, className, featured = false, style }: Property
     <Link 
       to={`/property/${property.id}`}
       className={cn(
-        "group property-card",
+        "group flex flex-col overflow-hidden rounded-lg bg-white shadow-md hover:shadow-lg transition-all duration-300",
         featured ? "md:col-span-2" : "",
         className
       )}
       style={style}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
     >
-      <div className="property-image-container">
+      <div className="relative overflow-hidden aspect-[4/3]">
         <img 
           src={property.image} 
           alt={property.title}
-          className="property-image"
+          className="w-full h-full object-cover transition-transform duration-500 ease-out-expo group-hover:scale-110"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-60"></div>
         <button
           onClick={handleSaveToggle}
           className={cn(
-            "absolute top-3 right-3 p-2 rounded-full transition-all duration-300",
+            "absolute top-4 right-4 p-2 rounded-full transition-all duration-300",
             isSaved 
               ? "bg-white text-red-500" 
-              : "bg-black/30 text-white hover:bg-white hover:text-red-500"
+              : "bg-white/30 text-white hover:bg-white hover:text-red-500"
           )}
         >
-          <Heart className={cn("h-4 w-4", isSaved ? "fill-red-500" : "")} />
+          <Heart className={cn("h-5 w-5", isSaved ? "fill-red-500" : "")} />
         </button>
-        <div className="absolute top-3 left-3">
+        <div className="absolute top-4 left-4 flex flex-wrap gap-2">
           <span className={cn(
-            "text-xs font-medium px-2 py-1 rounded-md",
+            "text-xs font-semibold px-3 py-1.5 rounded-full",
             property.type === 'sale' 
-              ? "bg-blue-500 text-white" 
+              ? "bg-blue-600 text-white" 
               : "bg-amber-500 text-white"
           )}>
             {property.type === 'sale' ? 'For Sale' : 'For Rent'}
           </span>
           {property.featured && (
-            <span className="ml-2 bg-primary text-white text-xs font-medium px-2 py-1 rounded-md">
+            <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full">
               Featured
             </span>
           )}
         </div>
+        <div className="absolute bottom-4 left-4 right-4">
+          <h3 className="text-xl text-white font-bold mb-1 drop-shadow-md">
+            {property.title}
+          </h3>
+          <div className="flex items-center text-white/90 text-sm">
+            <MapPin className="h-3.5 w-3.5 mr-1" />
+            <span className="truncate">{property.address}</span>
+          </div>
+        </div>
       </div>
-      <div className="p-4 bg-white">
-        <div className="flex justify-between items-start">
-          <div>
-            <h3 className="font-medium text-lg group-hover:text-primary transition-colors duration-300">
-              {property.title}
-            </h3>
-            <div className="flex items-center text-muted-foreground text-sm mt-1">
-              <MapPin className="h-3.5 w-3.5 mr-1 text-primary" />
-              <span>{property.address}</span>
+      <div className="p-5">
+        <div className="flex justify-between items-center mb-4">
+          <div className="flex items-center space-x-4">
+            <div className="flex items-center text-sm text-slate-700">
+              <BedDouble className="h-4 w-4 mr-1.5 text-primary" />
+              <span>{property.bedrooms} {property.bedrooms === 1 ? 'Bed' : 'Beds'}</span>
+            </div>
+            <div className="flex items-center text-sm text-slate-700">
+              <Bath className="h-4 w-4 mr-1.5 text-primary" />
+              <span>{property.bathrooms} {property.bathrooms === 1 ? 'Bath' : 'Baths'}</span>
+            </div>
+            <div className="flex items-center text-sm text-slate-700">
+              <Square className="h-4 w-4 mr-1.5 text-primary" />
+              <span>{property.squareFeet} sq ft</span>
             </div>
           </div>
-          <p className="text-lg font-semibold text-primary">
+        </div>
+        <div className="flex justify-between items-center">
+          <span className="text-sm text-slate-600">{property.propertyType.charAt(0).toUpperCase() + property.propertyType.slice(1)}</span>
+          <p className="text-xl font-bold text-primary">
             {formatPrice(property.price)}
             {property.type === 'rent' && <span className="text-sm font-normal">/mo</span>}
           </p>
-        </div>
-        
-        <div className="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-slate-100">
-          <div className="flex items-center text-muted-foreground text-sm">
-            <BedDouble className="h-4 w-4 mr-1.5" />
-            <span>{property.bedrooms} {property.bedrooms === 1 ? 'Bed' : 'Beds'}</span>
-          </div>
-          <div className="flex items-center text-muted-foreground text-sm">
-            <Bath className="h-4 w-4 mr-1.5" />
-            <span>{property.bathrooms} {property.bathrooms === 1 ? 'Bath' : 'Baths'}</span>
-          </div>
-          <div className="flex items-center text-muted-foreground text-sm">
-            <Square className="h-4 w-4 mr-1.5" />
-            <span>{property.squareFeet} sq ft</span>
-          </div>
         </div>
       </div>
     </Link>
