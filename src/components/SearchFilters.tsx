@@ -14,15 +14,15 @@ interface SearchFiltersProps {
 const SearchFilters = ({ className, variant = 'simple', onSearch }: SearchFiltersProps) => {
   const [location, setLocation] = useState('');
   const [propertyType, setPropertyType] = useState('');
-  const [priceRange, setPriceRange] = useState([0, 2000000]);
+  const [priceRange, setPriceRange] = useState([0, 50000000]);
   const [bedrooms, setBedrooms] = useState('');
   const [bathrooms, setBathrooms] = useState('');
   const [advancedOpen, setAdvancedOpen] = useState(false);
   
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('en-US', {
+    return new Intl.NumberFormat('en-KE', {
       style: 'currency',
-      currency: 'USD',
+      currency: 'KES',
       maximumFractionDigits: 0,
     }).format(price);
   };
@@ -68,12 +68,14 @@ const SearchFilters = ({ className, variant = 'simple', onSearch }: SearchFilter
                 onChange={(e) => setPropertyType(e.target.value)}
               >
                 <option value="">Property Type</option>
-                <option value="house">House</option>
-                <option value="apartment">Apartment</option>
-                <option value="condo">Condo</option>
-                <option value="townhouse">Townhouse</option>
-                <option value="land">Land</option>
+                <option value="apartment">Apartments</option>
+                <option value="house">Houses</option>
+                <option value="townhouse">Townhouses</option>
                 <option value="commercial">Commercial</option>
+                <option value="1bedroom">1 Bedroom</option>
+                <option value="2bedroom">2 Bedroom</option>
+                <option value="3bedroom">3 Bedroom</option>
+                <option value="all">All Properties</option>
               </select>
             </div>
             
@@ -137,9 +139,9 @@ const SearchFilters = ({ className, variant = 'simple', onSearch }: SearchFilter
                         Price Range: {formatPrice(priceRange[0])} - {formatPrice(priceRange[1])}
                       </label>
                       <Slider
-                        defaultValue={[0, 2000000]}
-                        max={5000000}
-                        step={50000}
+                        defaultValue={[0, 20000000]}
+                        max={50000000}
+                        step={500000}
                         onValueChange={(values) => setPriceRange(values as [number, number])}
                         className="my-4"
                       />
@@ -151,7 +153,6 @@ const SearchFilters = ({ className, variant = 'simple', onSearch }: SearchFilter
                         <select className="w-full rounded-lg border border-input bg-background py-2 px-3 text-sm">
                           <option value="">Any</option>
                           <option value="sale">For Sale</option>
-                          <option value="rent">For Rent</option>
                         </select>
                       </div>
                       
@@ -197,7 +198,7 @@ const SearchFilters = ({ className, variant = 'simple', onSearch }: SearchFilter
                         onClick={() => {
                           setLocation('');
                           setPropertyType('');
-                          setPriceRange([0, 2000000]);
+                          setPriceRange([0, 20000000]);
                           setBedrooms('');
                           setBathrooms('');
                         }}

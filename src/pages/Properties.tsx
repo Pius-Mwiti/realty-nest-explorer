@@ -9,12 +9,20 @@ import SearchFilters from '../components/SearchFilters';
 import { properties } from '../data/properties';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
+import { 
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 const Properties = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const queryParams = new URLSearchParams(location.search);
   const typeParam = queryParams.get('type');
+  const propertyTypeParam = queryParams.get('propertyType');
   
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
   const [showFilters, setShowFilters] = useState(false);
@@ -27,15 +35,19 @@ const Properties = () => {
     baths?: number;
     propertyType?: string;
   }>({
-    type: typeParam || undefined
+    type: typeParam || undefined,
+    propertyType: propertyTypeParam || undefined
   });
   
   useEffect(() => {
-    // Apply initial filter from URL if present
-    if (typeParam) {
-      applyFilters({ type: typeParam });
+    // Apply initial filters from URL if present
+    if (typeParam || propertyTypeParam) {
+      applyFilters({ 
+        type: typeParam || undefined,
+        propertyType: propertyTypeParam || undefined
+      });
     }
-  }, [typeParam]);
+  }, [typeParam, propertyTypeParam]);
   
   const applyFilters = (filters: any) => {
     let filtered = [...properties];
@@ -61,7 +73,23 @@ const Properties = () => {
     }
     
     if (filters.propertyType) {
-      filtered = filtered.filter(property => property.propertyType === filters.propertyType);
+      if (filters.propertyType === 'all') {
+        // No filtering needed for "all"
+      } else if (filters.propertyType === '1bedroom') {
+        filtered = filtered.filter(property => 
+          property.propertyType === 'apartment' && property.bedrooms === 1
+        );
+      } else if (filters.propertyType === '2bedroom') {
+        filtered = filtered.filter(property => 
+          property.propertyType === 'apartment' && property.bedrooms === 2
+        );
+      } else if (filters.propertyType === '3bedroom') {
+        filtered = filtered.filter(property => 
+          property.propertyType === 'apartment' && property.bedrooms === 3
+        );
+      } else {
+        filtered = filtered.filter(property => property.propertyType === filters.propertyType);
+      }
     }
     
     setFilteredProperties(filtered);
@@ -95,6 +123,10 @@ const Properties = () => {
   
   const toggleFilters = () => {
     setShowFilters(!showFilters);
+  };
+  
+  const handlePropertyTypeChange = (value: string) => {
+    applyFilters({ ...activeFilters, propertyType: value });
   };
   
   const hasActiveFilters = Object.keys(activeFilters).length > 0;
@@ -152,6 +184,22 @@ const Properties = () => {
                     Filters
                   </Button>
                   
+                  <Select onValueChange={handlePropertyTypeChange} defaultValue={activeFilters.propertyType || ""}>
+                    <SelectTrigger className="w-[180px]">
+                      <SelectValue placeholder="Property Type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="all">All Properties</SelectItem>
+                      <SelectItem value="apartment">Apartments</SelectItem>
+                      <SelectItem value="bedsitter">Bedsitters</SelectItem>
+                      <SelectItem value="house">Houses</SelectItem>
+                      <SelectItem value="studio">Studios</SelectItem>
+                      <SelectItem value="1bedroom">1 Bedroom</SelectItem>
+                      <SelectItem value="2bedroom">2 Bedroom</SelectItem>
+                      <SelectItem value="3bedroom">3 Bedroom</SelectItem>
+                    </SelectContent>
+                  </Select>
+                  
                   <div className="border rounded-md flex">
                     <button
                       className={cn(
@@ -195,7 +243,15 @@ const Properties = () => {
                   
                   {activeFilters.propertyType && (
                     <div className="flex items-center bg-muted px-3 py-1 rounded-full text-sm">
-                      {activeFilters.propertyType.charAt(0).toUpperCase() + activeFilters.propertyType.slice(1)}
+                      {activeFilters.propertyType === 'all' 
+                        ? 'All Properties'
+                        : activeFilters.propertyType === '1bedroom'
+                          ? '1 Bedroom'
+                          : activeFilters.propertyType === '2bedroom'
+                            ? '2 Bedroom'
+                            : activeFilters.propertyType === '3bedroom'
+                              ? '3 Bedroom'
+                              : activeFilters.propertyType.charAt(0).toUpperCase() + activeFilters.propertyType.slice(1)}
                       <button
                         onClick={() => applyFilters({ ...activeFilters, propertyType: undefined })}
                         className="ml-2 text-muted-foreground hover:text-foreground"
