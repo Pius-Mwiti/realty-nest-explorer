@@ -10,7 +10,7 @@ export default defineConfig(({ mode }) => ({
     host: "::",
     port: 8080,
   },
-  base: mode === 'production' ? '/realty-nest-explorer/' : '/',
+  base: '/realty-nest-explorer/',
   plugins: [
     react(),
     mode === 'development' &&
