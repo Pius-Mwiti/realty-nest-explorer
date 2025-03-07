@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Instagram, Facebook, Twitter, Linkedin, Mail, Phone, MapPin, MessageCircle } from 'lucide-react';
@@ -10,11 +9,11 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div className="space-y-4">
             <Link to="/" className="text-xl font-bold flex items-center">
-              <span className="text-primary">Smart</span>
-              <span className="text-foreground">Homes</span>
+              <span className="text-primary">SMART</span>
+              <span className="text-foreground"> HOMES real estate</span>
             </Link>
             <p className="text-muted-foreground">
-              Finding you quality and affordable rental properties in Nairobi's prime locations.
+              Finding you quality and affordable properties in Nairobi's prime locations.
             </p>
             <div className="flex space-x-4 pt-2">
               <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -97,6 +96,7 @@ const Footer = () => {
             <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
           </div>
+          <p className="mt-4 italic">Project developed by: Pius Mwiti James (Smart Minds Technology +254729990696)</p>
         </div>
       </div>
     </footer>

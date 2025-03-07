@@ -10,47 +10,11 @@ const PropertyTypeSection = () => {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Browse by Property Type</h2>
           <p className="text-slate-600">
-            Explore our diverse range of rental properties in Nairobi's prime locations
+            Explore our diverse range of premium properties for sale in Nairobi's prime locations
           </p>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          <Link to="/properties?propertyType=single" className="group">
-            <div className="relative rounded-xl overflow-hidden aspect-[3/2]">
-              <img 
-                src="https://images.unsplash.com/photo-1540518614846-7eded433c457?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
-                alt="Single Rooms" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6">
-                <h3 className="text-white text-2xl font-bold mb-2">Single Rooms</h3>
-                <p className="text-white/90 mb-3">KSh 5,000 - 7,000 per month</p>
-                <span className="inline-flex items-center text-white text-sm font-medium">
-                  Browse singles <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </div>
-            </div>
-          </Link>
-          
-          <Link to="/properties?propertyType=bedsitter" className="group">
-            <div className="relative rounded-xl overflow-hidden aspect-[3/2]">
-              <img 
-                src="https://images.unsplash.com/photo-1586105251261-72a756497a11?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
-                alt="Bedsitters" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6">
-                <h3 className="text-white text-2xl font-bold mb-2">Bedsitters</h3>
-                <p className="text-white/90 mb-3">KSh 7,500 - 15,000 per month</p>
-                <span className="inline-flex items-center text-white text-sm font-medium">
-                  Browse bedsitters <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </div>
-            </div>
-          </Link>
-          
           <Link to="/properties?propertyType=apartment" className="group">
             <div className="relative rounded-xl overflow-hidden aspect-[3/2]">
               <img 
@@ -61,9 +25,45 @@ const PropertyTypeSection = () => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6">
                 <h3 className="text-white text-2xl font-bold mb-2">Apartments</h3>
-                <p className="text-white/90 mb-3">KSh 15,000 - 35,000+ per month</p>
+                <p className="text-white/90 mb-3">KES 5,000,000 - 15,000,000</p>
                 <span className="inline-flex items-center text-white text-sm font-medium">
                   Browse apartments <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </div>
+          </Link>
+          
+          <Link to="/properties?propertyType=2bedroom" className="group">
+            <div className="relative rounded-xl overflow-hidden aspect-[3/2]">
+              <img 
+                src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
+                alt="2 Bedroom Apartments" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-6">
+                <h3 className="text-white text-2xl font-bold mb-2">2 Bedroom Apartments</h3>
+                <p className="text-white/90 mb-3">KES 8,000,000 - 20,000,000</p>
+                <span className="inline-flex items-center text-white text-sm font-medium">
+                  Browse 2 Bedrooms <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </div>
+          </Link>
+          
+          <Link to="/properties?propertyType=3bedroom" className="group">
+            <div className="relative rounded-xl overflow-hidden aspect-[3/2]">
+              <img 
+                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
+                alt="3 Bedroom Apartments" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-6">
+                <h3 className="text-white text-2xl font-bold mb-2">3 Bedroom Apartments</h3>
+                <p className="text-white/90 mb-3">KES 12,000,000 - 35,000,000</p>
+                <span className="inline-flex items-center text-white text-sm font-medium">
+                  Browse 3 Bedrooms <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
             </div>
