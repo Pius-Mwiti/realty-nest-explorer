@@ -14,7 +14,7 @@ interface SearchFiltersProps {
 const SearchFilters = ({ className, variant = 'simple', onSearch }: SearchFiltersProps) => {
   const [location, setLocation] = useState('');
   const [propertyType, setPropertyType] = useState('');
-  const [priceRange, setPriceRange] = useState([0, 2000000]);
+  const [priceRange, setPriceRange] = useState([0, 50000000]);
   const [bedrooms, setBedrooms] = useState('');
   const [bathrooms, setBathrooms] = useState('');
   const [advancedOpen, setAdvancedOpen] = useState(false);
@@ -69,9 +69,9 @@ const SearchFilters = ({ className, variant = 'simple', onSearch }: SearchFilter
               >
                 <option value="">Property Type</option>
                 <option value="apartment">Apartments</option>
-                <option value="bedsitter">Bedsitters</option>
                 <option value="house">Houses</option>
-                <option value="studio">Studios</option>
+                <option value="townhouse">Townhouses</option>
+                <option value="commercial">Commercial</option>
                 <option value="1bedroom">1 Bedroom</option>
                 <option value="2bedroom">2 Bedroom</option>
                 <option value="3bedroom">3 Bedroom</option>
