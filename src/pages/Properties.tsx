@@ -303,13 +303,13 @@ const Properties = () => {
                 viewMode === 'grid' ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {filteredProperties.map((property) => (
-                      <PropertyCard key={property.id} property={property} />
+                      <PropertyCard property={property} />
                     ))}
                   </div>
                 ) : (
                   <div className="flex flex-col space-y-6">
                     {filteredProperties.map((property) => (
-                      <PropertyCard key={property.id} property={property} className="!block md:flex" />
+                      <PropertyCard property={property} className="!block md:flex" />
                     ))}
                   </div>
                 )
