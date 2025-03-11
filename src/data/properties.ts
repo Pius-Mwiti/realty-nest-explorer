@@ -240,41 +240,32 @@ for (let i = 13; i <= 150; i++) {
   const locations = ["Westlands", "Kilimani", "Upper Hill", "South C", "South B"];
   const location = locations[Math.floor(Math.random() * locations.length)];
   
-  const propertyTypes = ["apartment", "house", "townhouse", "commercial", "single"] as const;
+  const propertyTypes = ["apartment", "house"] as const;
   const propertyType = propertyTypes[Math.floor(Math.random() * propertyTypes.length)];
   
   let bedrooms = 1;
   let price = 5000000;
   let title = "";
   
-  if (propertyType === "single") {
-    bedrooms = 1;
-    price = Math.floor(Math.random() * (8000000 - 5000000 + 1)) + 5000000;
-    title = `Single Room in ${location}`;
-  } else if (propertyType === "apartment") {
-    bedrooms = Math.floor(Math.random() * 3) + 1;
+  if (propertyType === "apartment") {
+    bedrooms = Math.floor(Math.random() * 4) + 1; // 1-4 bedrooms
     if (bedrooms === 1) {
       price = Math.floor(Math.random() * (12000000 - 6500000 + 1)) + 6500000;
       title = `Cozy 1 Bedroom Apartment in ${location}`;
     } else if (bedrooms === 2) {
       price = Math.floor(Math.random() * (22000000 - 12000000 + 1)) + 12000000;
       title = `Spacious 2 Bedroom Apartment in ${location}`;
-    } else {
+    } else if (bedrooms === 3) {
       price = Math.floor(Math.random() * (35000000 - 22000000 + 1)) + 22000000;
       title = `Luxury 3 Bedroom Apartment in ${location}`;
+    } else {
+      price = Math.floor(Math.random() * (45000000 - 35000000 + 1)) + 35000000;
+      title = `Premium 4 Bedroom Apartment in ${location}`;
     }
   } else if (propertyType === "house") {
     bedrooms = Math.floor(Math.random() * 2) + 3; // 3-4 bedrooms
     price = Math.floor(Math.random() * (65000000 - 35000000 + 1)) + 35000000;
     title = `${bedrooms} Bedroom House in ${location}`;
-  } else if (propertyType === "townhouse") {
-    bedrooms = Math.floor(Math.random() * 2) + 3; // 3-4 bedrooms
-    price = Math.floor(Math.random() * (55000000 - 30000000 + 1)) + 30000000;
-    title = `Modern ${bedrooms} Bedroom Townhouse in ${location}`;
-  } else if (propertyType === "commercial") {
-    bedrooms = 0;
-    price = Math.floor(Math.random() * (80000000 - 40000000 + 1)) + 40000000;
-    title = `Commercial Space in ${location}`;
   }
   
   const totalFloors = [3, 6, 7, 10, 12, 14][Math.floor(Math.random() * 6)];

@@ -16,7 +16,7 @@ export interface PropertyType {
   image: string;
   featured?: boolean;
   type: 'sale' | 'rent';
-  propertyType: 'apartment' | 'house' | 'townhouse' | 'commercial' | 'single';
+  propertyType: 'apartment' | 'house';
   location: string;
   description?: string;
   floor?: number;

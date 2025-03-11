@@ -18,7 +18,7 @@ const PropertyTypeSection = () => {
           <Link to="/properties?propertyType=apartment" className="group">
             <div className="relative rounded-xl overflow-hidden aspect-[3/2]">
               <img 
-                src="https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
+                src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
                 alt="Apartments" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
@@ -33,37 +33,37 @@ const PropertyTypeSection = () => {
             </div>
           </Link>
           
+          <Link to="/properties?propertyType=1bedroom" className="group">
+            <div className="relative rounded-xl overflow-hidden aspect-[3/2]">
+              <img 
+                src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
+                alt="1 Bedroom Apartments" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+              <div className="absolute bottom-0 left-0 p-6">
+                <h3 className="text-white text-2xl font-bold mb-2">1 Bedroom Apartments</h3>
+                <p className="text-white/90 mb-3">KES 8,000,000 - 12,000,000</p>
+                <span className="inline-flex items-center text-white text-sm font-medium">
+                  Browse 1 Bedrooms <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+            </div>
+          </Link>
+          
           <Link to="/properties?propertyType=2bedroom" className="group">
             <div className="relative rounded-xl overflow-hidden aspect-[3/2]">
               <img 
-                src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
+                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
                 alt="2 Bedroom Apartments" 
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
               <div className="absolute bottom-0 left-0 p-6">
                 <h3 className="text-white text-2xl font-bold mb-2">2 Bedroom Apartments</h3>
-                <p className="text-white/90 mb-3">KES 8,000,000 - 20,000,000</p>
+                <p className="text-white/90 mb-3">KES 12,000,000 - 20,000,000</p>
                 <span className="inline-flex items-center text-white text-sm font-medium">
                   Browse 2 Bedrooms <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
-                </span>
-              </div>
-            </div>
-          </Link>
-          
-          <Link to="/properties?propertyType=3bedroom" className="group">
-            <div className="relative rounded-xl overflow-hidden aspect-[3/2]">
-              <img 
-                src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1500&q=80" 
-                alt="3 Bedroom Apartments" 
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
-              <div className="absolute bottom-0 left-0 p-6">
-                <h3 className="text-white text-2xl font-bold mb-2">3 Bedroom Apartments</h3>
-                <p className="text-white/90 mb-3">KES 12,000,000 - 35,000,000</p>
-                <span className="inline-flex items-center text-white text-sm font-medium">
-                  Browse 3 Bedrooms <ChevronRight className="ml-1 h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
             </div>

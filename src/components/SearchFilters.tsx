@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Search, MapPin, ChevronDown } from 'lucide-react';
@@ -70,11 +69,10 @@ const SearchFilters = ({ className, variant = 'simple', onSearch }: SearchFilter
                 <option value="">Property Type</option>
                 <option value="apartment">Apartments</option>
                 <option value="house">Houses</option>
-                <option value="townhouse">Townhouses</option>
-                <option value="commercial">Commercial</option>
                 <option value="1bedroom">1 Bedroom</option>
                 <option value="2bedroom">2 Bedroom</option>
                 <option value="3bedroom">3 Bedroom</option>
+                <option value="4bedroom">4 Bedroom</option>
                 <option value="all">All Properties</option>
               </select>
             </div>
@@ -90,7 +88,6 @@ const SearchFilters = ({ className, variant = 'simple', onSearch }: SearchFilter
                 <option value="2">2+ Bedrooms</option>
                 <option value="3">3+ Bedrooms</option>
                 <option value="4">4+ Bedrooms</option>
-                <option value="5">5+ Bedrooms</option>
               </select>
             </div>
             

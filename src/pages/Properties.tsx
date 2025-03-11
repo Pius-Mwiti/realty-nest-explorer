@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Grid, List, SlidersHorizontal, X } from 'lucide-react';
@@ -86,6 +85,10 @@ const Properties = () => {
       } else if (filters.propertyType === '3bedroom') {
         filtered = filtered.filter(property => 
           property.propertyType === 'apartment' && property.bedrooms === 3
+        );
+      } else if (filters.propertyType === '4bedroom') {
+        filtered = filtered.filter(property => 
+          property.propertyType === 'apartment' && property.bedrooms === 4
         );
       } else {
         filtered = filtered.filter(property => property.propertyType === filters.propertyType);
@@ -191,12 +194,11 @@ const Properties = () => {
                     <SelectContent>
                       <SelectItem value="all">All Properties</SelectItem>
                       <SelectItem value="apartment">Apartments</SelectItem>
-                      <SelectItem value="bedsitter">Bedsitters</SelectItem>
                       <SelectItem value="house">Houses</SelectItem>
-                      <SelectItem value="studio">Studios</SelectItem>
                       <SelectItem value="1bedroom">1 Bedroom</SelectItem>
                       <SelectItem value="2bedroom">2 Bedroom</SelectItem>
                       <SelectItem value="3bedroom">3 Bedroom</SelectItem>
+                      <SelectItem value="4bedroom">4 Bedroom</SelectItem>
                     </SelectContent>
                   </Select>
                   
@@ -251,7 +253,9 @@ const Properties = () => {
                             ? '2 Bedroom'
                             : activeFilters.propertyType === '3bedroom'
                               ? '3 Bedroom'
-                              : activeFilters.propertyType.charAt(0).toUpperCase() + activeFilters.propertyType.slice(1)}
+                              : activeFilters.propertyType === '4bedroom'
+                                ? '4 Bedroom'
+                                : activeFilters.propertyType.charAt(0).toUpperCase() + activeFilters.propertyType.slice(1)}
                       <button
                         onClick={() => applyFilters({ ...activeFilters, propertyType: undefined })}
                         className="ml-2 text-muted-foreground hover:text-foreground"

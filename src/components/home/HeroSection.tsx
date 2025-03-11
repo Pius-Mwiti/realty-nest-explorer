@@ -33,10 +33,10 @@ const HeroSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-white">
         <div className="max-w-3xl animate-fade-up">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            Find Your Ideal Rental in Nairobi
+            Find Your Ideal Home in Nairobi
           </h1>
           <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl">
-            Discover affordable singles, bedsitters, and apartments in Westlands, Kilimani, Upper Hill, South C, and South B.
+            Discover beautiful apartments and houses in Westlands, Kilimani, Upper Hill, South C, and South B.
           </p>
           
           <form onSubmit={handleSearch} className="bg-white p-4 rounded-lg shadow-lg">
@@ -67,9 +67,12 @@ const HeroSection = () => {
                     className="w-full pl-10 py-3 pr-4 rounded-md border border-slate-200 focus:outline-none focus:ring-2 focus:ring-primary/50 text-slate-800"
                   >
                     <option value="">Property Type</option>
-                    <option value="single">Single Room</option>
-                    <option value="bedsitter">Bedsitter</option>
                     <option value="apartment">Apartment</option>
+                    <option value="house">House</option>
+                    <option value="1bedroom">1 Bedroom</option>
+                    <option value="2bedroom">2 Bedroom</option>
+                    <option value="3bedroom">3 Bedroom</option>
+                    <option value="4bedroom">4 Bedroom</option>
                   </select>
                 </div>
               </div>
