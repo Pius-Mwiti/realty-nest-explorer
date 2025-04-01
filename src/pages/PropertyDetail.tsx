@@ -57,7 +57,7 @@ const PropertyDetail = () => {
 
   const getWhatsAppLink = () => {
     const message = encodeURIComponent(
-      `Hello, I'm interested in your property: ${property.title} (${property.propertyType}) in ${property.location} priced at ${formatPrice(property.price)}/month. Can I schedule a viewing?`
+      `Hello, I'm interested in your property: ${property.title} (${property.propertyType}) in ${property.location} priced at ${formatPrice(property.price)}. Can I schedule a viewing?`
     );
     return `https://wa.me/254708333761?text=${message}`;
   };
@@ -65,7 +65,7 @@ const PropertyDetail = () => {
   const getEmailLink = () => {
     const subject = encodeURIComponent(`Inquiry about ${property.title} in ${property.location}`);
     const body = encodeURIComponent(
-      `Hello,\n\nI'm interested in your property:\n\n${property.title}\nLocation: ${property.location}\nPrice: ${formatPrice(property.price)}/month\n\nI would like to schedule a viewing. Please contact me at your earliest convenience.\n\nThank you.`
+      `Hello,\n\nI'm interested in your property:\n\n${property.title}\nLocation: ${property.location}\nPrice: ${formatPrice(property.price)}\n\nI would like to schedule a viewing. Please contact me at your earliest convenience.\n\nThank you.`
     );
     return `mailto:daviszack043@gmail.com?subject=${subject}&body=${body}`;
   };
@@ -107,7 +107,6 @@ const PropertyDetail = () => {
                   </div>
                   <div className="text-2xl font-bold text-primary">
                     {formatPrice(property.price)}
-                    <span className="text-sm font-normal">/month</span>
                   </div>
                 </div>
                 
@@ -160,11 +159,11 @@ const PropertyDetail = () => {
                     </div>
                     <div className="flex justify-between py-3 border-b border-gray-100">
                       <span className="text-gray-600">Status</span>
-                      <span className="font-semibold">For Rent</span>
+                      <span className="font-semibold">For Sale</span>
                     </div>
                     <div className="flex justify-between py-3 border-b border-gray-100">
                       <span className="text-gray-600">Price</span>
-                      <span className="font-semibold">{formatPrice(property.price)}/month</span>
+                      <span className="font-semibold">{formatPrice(property.price)}</span>
                     </div>
                     <div className="flex justify-between py-3 border-b border-gray-100">
                       <span className="text-gray-600">Area</span>
@@ -172,12 +171,28 @@ const PropertyDetail = () => {
                     </div>
                   </div>
                 </div>
+                
+                <div className="mt-8">
+                  <h2 className="text-xl font-bold mb-4">Property Video</h2>
+                  <div className="aspect-video rounded-lg overflow-hidden">
+                    <iframe 
+                      width="100%" 
+                      height="100%" 
+                      src="https://www.youtube.com/embed/dQw-e5Bjkb0?si=T7XmdFJ-3RmWb24K" 
+                      title="Property Video Tour" 
+                      frameBorder="0" 
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                      allowFullScreen
+                      className="w-full h-full"
+                    ></iframe>
+                  </div>
+                </div>
               </div>
             </div>
             
             <div className="lg:col-span-1">
               <div className="bg-white rounded-lg shadow-md p-6 sticky top-8">
-                <h2 className="text-xl font-bold mb-6">Contact Agent</h2>
+                <h2 className="text-xl font-bold mb-6">Contact Owner</h2>
                 
                 <div className="space-y-6 mb-8">
                   <a 
@@ -204,7 +219,7 @@ const PropertyDetail = () => {
                   >
                     <a href={`tel:0708333761`}>
                       <Phone className="mr-2 h-4 w-4" />
-                      Call Agent
+                      Call Owner
                     </a>
                   </Button>
                   
@@ -257,7 +272,7 @@ const PropertyDetail = () => {
                       />
                       <div className="absolute top-4 left-4">
                         <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full">
-                          For Rent
+                          For Sale
                         </span>
                       </div>
                       <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/60 to-transparent p-4">
@@ -271,7 +286,7 @@ const PropertyDetail = () => {
                     <div className="p-4">
                       <div className="flex justify-between items-center mb-2">
                         <span className="text-sm text-gray-600 capitalize">{prop.propertyType} in {prop.location}</span>
-                        <span className="font-bold text-primary">{formatPrice(prop.price)}/mo</span>
+                        <span className="font-bold text-primary">{formatPrice(prop.price)}</span>
                       </div>
                       <div className="flex items-center justify-between text-sm text-gray-600">
                         <span>{prop.bedrooms} Bed{prop.bedrooms !== 1 ? 's' : ''}</span>
