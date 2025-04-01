@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Slider } from '@/components/ui/slider';
 import { Search, MapPin, ChevronDown } from 'lucide-react';

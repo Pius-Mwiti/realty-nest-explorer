@@ -50,7 +50,7 @@ const PropertyCard = ({ property, className, featured = false, style }: Property
 
   const getWhatsAppLink = (property: PropertyType) => {
     const message = encodeURIComponent(
-      `Hello, I'm interested in your property: ${property.title} (${property.propertyType}) in ${property.location} priced at ${formatPrice(property.price)}/month. Please provide more information.`
+      `Hello, I'm interested in your property: ${property.title} (${property.propertyType}) in ${property.location} priced at ${formatPrice(property.price)}. Please provide more information.`
     );
     return `https://wa.me/254708333761?text=${message}`;
   };
@@ -58,7 +58,7 @@ const PropertyCard = ({ property, className, featured = false, style }: Property
   const getEmailLink = (property: PropertyType) => {
     const subject = encodeURIComponent(`Inquiry about ${property.title} in ${property.location}`);
     const body = encodeURIComponent(
-      `Hello,\n\nI'm interested in your property:\n\n${property.title}\nLocation: ${property.location}\nPrice: ${formatPrice(property.price)}/month\n\nPlease provide more information.\n\nThank you.`
+      `Hello,\n\nI'm interested in your property:\n\n${property.title}\nLocation: ${property.location}\nPrice: ${formatPrice(property.price)}\n\nPlease provide more information.\n\nThank you.`
     );
     return `mailto:daviszack043@gmail.com?subject=${subject}&body=${body}`;
   };
@@ -112,7 +112,7 @@ const PropertyCard = ({ property, className, featured = false, style }: Property
         </button>
         <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-10">
           <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full">
-            For Rent
+            For Sale
           </span>
           {property.featured && (
             <span className="bg-amber-500 text-white text-xs font-semibold px-3 py-1.5 rounded-full">
@@ -157,7 +157,6 @@ const PropertyCard = ({ property, className, featured = false, style }: Property
           <span className="text-sm text-slate-600 capitalize">{property.propertyType} in {property.location}</span>
           <p className="text-xl font-bold text-primary">
             {formatPrice(property.price)}
-            <span className="text-sm font-normal">/mo</span>
           </p>
         </div>
         <div className="flex flex-col gap-2 mt-4">

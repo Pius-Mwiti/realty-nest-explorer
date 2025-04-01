@@ -1,3 +1,4 @@
+
 import { PropertyType } from '../components/PropertyCard';
 
 // New images from Unsplash (high-quality furnished apartments)
@@ -35,7 +36,7 @@ export const properties: PropertyType[] = [
     id: "1",
     title: "Modern 1 Bedroom Apartment in Westlands",
     address: "Waiyaki Way, Westlands, Nairobi",
-    price: 7500000,
+    price: 4800000,
     bedrooms: 1,
     bathrooms: 1,
     squareFeet: 750,
@@ -51,7 +52,7 @@ export const properties: PropertyType[] = [
     id: "2",
     title: "Spacious 1 Bedroom Apartment in Westlands",
     address: "Parklands Road, Westlands, Nairobi",
-    price: 8500000,
+    price: 5200000,
     bedrooms: 1,
     bathrooms: 1,
     squareFeet: 800,
@@ -68,7 +69,7 @@ export const properties: PropertyType[] = [
     id: "3",
     title: "Luxurious 2 Bedroom Apartment in Westlands",
     address: "Westlands Road, Nairobi",
-    price: 15000000,
+    price: 7800000,
     bedrooms: 2,
     bathrooms: 2,
     squareFeet: 1200,
@@ -87,7 +88,7 @@ export const properties: PropertyType[] = [
     id: "4",
     title: "Elegant 1 Bedroom Apartment in Kilimani",
     address: "Argwings Kodhek Road, Kilimani, Nairobi",
-    price: 9000000,
+    price: 4300000,
     bedrooms: 1,
     bathrooms: 1,
     squareFeet: 780,
@@ -103,7 +104,7 @@ export const properties: PropertyType[] = [
     id: "5",
     title: "Premium 2 Bedroom Apartment in Kilimani",
     address: "Rose Avenue, Kilimani, Nairobi",
-    price: 18000000,
+    price: 9000000,
     bedrooms: 2,
     bathrooms: 2,
     squareFeet: 1350,
@@ -119,7 +120,7 @@ export const properties: PropertyType[] = [
     id: "6",
     title: "Elegant 3 Bedroom Apartment in Kilimani",
     address: "Dennis Pritt Road, Kilimani, Nairobi",
-    price: 25000000,
+    price: 15500000,
     bedrooms: 3,
     bathrooms: 2,
     squareFeet: 1800,
@@ -138,7 +139,7 @@ export const properties: PropertyType[] = [
     id: "7",
     title: "Spacious 1 Bedroom Apartment in Upper Hill",
     address: "Elgon Road, Upper Hill, Nairobi",
-    price: 10500000,
+    price: 6500000,
     bedrooms: 1,
     bathrooms: 1,
     squareFeet: 850,
@@ -154,7 +155,7 @@ export const properties: PropertyType[] = [
     id: "8",
     title: "Modern 2 Bedroom Apartment in Upper Hill",
     address: "Hospital Road, Upper Hill, Nairobi",
-    price: 19500000,
+    price: 8700000,
     bedrooms: 2,
     bathrooms: 2,
     squareFeet: 1320,
@@ -170,7 +171,7 @@ export const properties: PropertyType[] = [
     id: "9",
     title: "Executive 3 Bedroom Apartment in Upper Hill",
     address: "Upper Hill Road, Nairobi",
-    price: 30000000,
+    price: 18500000,
     bedrooms: 3,
     bathrooms: 3,
     squareFeet: 2100,
@@ -188,7 +189,7 @@ export const properties: PropertyType[] = [
     id: "10",
     title: "Compact 1 Bedroom Apartment in South C",
     address: "Muhoho Avenue, South C, Nairobi",
-    price: 6500000,
+    price: 4100000,
     bedrooms: 1,
     bathrooms: 1,
     squareFeet: 650,
@@ -204,7 +205,7 @@ export const properties: PropertyType[] = [
     id: "11",
     title: "Comfortable 2 Bedroom Apartment in South C",
     address: "Mugoya Estate, South C, Nairobi",
-    price: 12000000,
+    price: 7200000,
     bedrooms: 2,
     bathrooms: 1,
     squareFeet: 950,
@@ -220,7 +221,7 @@ export const properties: PropertyType[] = [
     id: "12",
     title: "Family-Friendly 3 Bedroom Apartment in South C",
     address: "Ole Shapara Road, South C, Nairobi",
-    price: 17500000,
+    price: 11500000,
     bedrooms: 3,
     bathrooms: 2,
     squareFeet: 1400,
@@ -244,27 +245,31 @@ for (let i = 13; i <= 150; i++) {
   const propertyType = propertyTypes[Math.floor(Math.random() * propertyTypes.length)];
   
   let bedrooms = 1;
-  let price = 5000000;
+  let price = 4000000;
   let title = "";
   
   if (propertyType === "apartment") {
     bedrooms = Math.floor(Math.random() * 4) + 1; // 1-4 bedrooms
     if (bedrooms === 1) {
-      price = Math.floor(Math.random() * (12000000 - 6500000 + 1)) + 6500000;
+      price = Math.floor(Math.random() * (6500000 - 4000000 + 1)) + 4000000;
       title = `Cozy 1 Bedroom Apartment in ${location}`;
     } else if (bedrooms === 2) {
-      price = Math.floor(Math.random() * (22000000 - 12000000 + 1)) + 12000000;
+      price = Math.floor(Math.random() * (9500000 - 7000000 + 1)) + 7000000;
       title = `Spacious 2 Bedroom Apartment in ${location}`;
     } else if (bedrooms === 3) {
-      price = Math.floor(Math.random() * (35000000 - 22000000 + 1)) + 22000000;
+      price = Math.floor(Math.random() * (22500000 - 11000000 + 1)) + 11000000;
       title = `Luxury 3 Bedroom Apartment in ${location}`;
     } else {
-      price = Math.floor(Math.random() * (45000000 - 35000000 + 1)) + 35000000;
+      price = Math.floor(Math.random() * (26000000 - 14000000 + 1)) + 14000000;
       title = `Premium 4 Bedroom Apartment in ${location}`;
     }
   } else if (propertyType === "house") {
     bedrooms = Math.floor(Math.random() * 2) + 3; // 3-4 bedrooms
-    price = Math.floor(Math.random() * (65000000 - 35000000 + 1)) + 35000000;
+    if (bedrooms === 3) {
+      price = Math.floor(Math.random() * (22500000 - 14000000 + 1)) + 14000000;
+    } else {
+      price = Math.floor(Math.random() * (26000000 - 18000000 + 1)) + 18000000;
+    }
     title = `${bedrooms} Bedroom House in ${location}`;
   }
   

@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Grid, List, SlidersHorizontal, X } from 'lucide-react';
@@ -233,7 +234,7 @@ const Properties = () => {
                   
                   {activeFilters.type && (
                     <div className="flex items-center bg-muted px-3 py-1 rounded-full text-sm">
-                      {activeFilters.type === 'sale' ? 'For Sale' : 'For Rent'}
+                      {activeFilters.type === 'sale' ? 'For Sale' : 'For Sale'}
                       <button
                         onClick={() => applyFilters({ ...activeFilters, type: undefined })}
                         className="ml-2 text-muted-foreground hover:text-foreground"
@@ -307,13 +308,13 @@ const Properties = () => {
                 viewMode === 'grid' ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                     {filteredProperties.map((property) => (
-                      <PropertyCard property={property} />
+                      <PropertyCard key={property.id} property={property} />
                     ))}
                   </div>
                 ) : (
                   <div className="flex flex-col space-y-6">
                     {filteredProperties.map((property) => (
-                      <PropertyCard property={property} className="!block md:flex" />
+                      <PropertyCard key={property.id} property={property} className="!block md:flex" />
                     ))}
                   </div>
                 )
