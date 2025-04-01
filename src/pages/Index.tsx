@@ -42,9 +42,10 @@ const Index = () => {
       <FeaturedProperties properties={featuredProperties} />
       <PropertyTypeSection />
       
-      <section className="py-12 bg-white">
+      <section className="py-12 bg-gradient-to-b from-white to-slate-50">
         <div className="container mx-auto px-4">
-          <PropertyAd className="max-w-4xl mx-auto" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Featured Property</h2>
+          <PropertyAd className="max-w-4xl mx-auto hover-scale" />
         </div>
       </section>
       
