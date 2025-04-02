@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 const Header = () => {
@@ -46,7 +46,7 @@ const Header = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-out-expo",
         isScrolled 
-          ? "py-3 bg-white/80 backdrop-blur-lg shadow-sm" 
+          ? "py-3 bg-white/95 backdrop-blur-lg shadow-sm" 
           : "py-5 bg-transparent"
       )}
     >
@@ -85,9 +85,9 @@ const Header = () => {
 
           {/* Mobile menu button */}
           <button
-            className="md:hidden"
+            className="md:hidden flex items-center justify-center w-10 h-10 rounded-md hover:bg-muted/80 transition-colors"
             onClick={toggleMobileMenu}
-            aria-label="Toggle menu"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? (
               <X className="h-6 w-6 text-foreground" />
@@ -101,15 +101,15 @@ const Header = () => {
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-background/95 backdrop-blur-sm md:hidden transition-transform duration-300",
+          "fixed inset-0 z-40 bg-white/98 backdrop-blur-lg md:hidden transition-transform duration-300",
           mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="flex flex-col pt-20 p-6 space-y-6">
+        <div className="flex flex-col pt-24 p-6 space-y-4 h-full overflow-y-auto">
           <Link 
             to="/" 
             className={cn(
-              "px-4 py-3 text-base font-medium rounded-md transition-colors",
+              "px-5 py-4 text-base font-medium rounded-md transition-colors",
               isActive("/") ? "bg-primary/10 text-primary" : "hover:bg-muted"
             )}
             onClick={() => setMobileMenuOpen(false)}
@@ -119,7 +119,7 @@ const Header = () => {
           <Link 
             to="/properties" 
             className={cn(
-              "px-4 py-3 text-base font-medium rounded-md transition-colors",
+              "px-5 py-4 text-base font-medium rounded-md transition-colors",
               isActive("/properties") ? "bg-primary/10 text-primary" : "hover:bg-muted"
             )}
             onClick={() => setMobileMenuOpen(false)}
@@ -129,7 +129,7 @@ const Header = () => {
           <Link 
             to="/about" 
             className={cn(
-              "px-4 py-3 text-base font-medium rounded-md transition-colors",
+              "px-5 py-4 text-base font-medium rounded-md transition-colors",
               isActive("/about") ? "bg-primary/10 text-primary" : "hover:bg-muted"
             )}
             onClick={() => setMobileMenuOpen(false)}
@@ -139,7 +139,7 @@ const Header = () => {
           <Link 
             to="/contact" 
             className={cn(
-              "px-4 py-3 text-base font-medium rounded-md transition-colors",
+              "px-5 py-4 text-base font-medium rounded-md transition-colors",
               isActive("/contact") ? "bg-primary/10 text-primary" : "hover:bg-muted"
             )}
             onClick={() => setMobileMenuOpen(false)}
@@ -147,10 +147,10 @@ const Header = () => {
             Contact
           </Link>
           
-          <div className="pt-4 border-t">
+          <div className="pt-6 border-t border-muted">
             <Link
               to="/saved"
-              className="block px-4 py-3 text-base font-medium rounded-md hover:bg-muted transition-colors"
+              className="block px-5 py-4 text-base font-medium rounded-md hover:bg-muted transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Saved Properties
@@ -158,7 +158,7 @@ const Header = () => {
             
             <Link
               to="/contact"
-              className="mt-3 block w-full px-4 py-3 text-base font-medium text-center text-white bg-primary rounded-md hover:bg-primary/90 transition-colors"
+              className="mt-4 block w-full px-5 py-4 text-base font-medium text-center text-white bg-primary rounded-md hover:bg-primary/90 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Get in Touch

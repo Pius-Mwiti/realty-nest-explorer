@@ -18,13 +18,6 @@ const queryClient = new QueryClient();
 
 // Layout component to show PropertyAd on all pages except home
 const PageWithAd = ({ children }: { children: React.ReactNode }) => {
-  // Don't show on homepage as it's already included there
-  const isHomePage = window.location.hash === "#/" || window.location.hash === "";
-  
-  if (isHomePage) {
-    return <>{children}</>;
-  }
-  
   return (
     <>
       {children}
@@ -42,7 +35,11 @@ const App = () => (
       <Sonner />
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={
+            <PageWithAd>
+              <Index />
+            </PageWithAd>
+          } />
           <Route path="/properties" element={
             <PageWithAd>
               <Properties />
