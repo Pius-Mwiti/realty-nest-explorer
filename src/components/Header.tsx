@@ -90,7 +90,7 @@ const Header = () => {
             aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
           >
             {mobileMenuOpen ? (
-              <X className="h-6 w-6 text-foreground" />
+              <X className="h-6 w-6 text-blue-600 font-bold" strokeWidth={2.5} />
             ) : (
               <Menu className="h-6 w-6 text-foreground" />
             )}
