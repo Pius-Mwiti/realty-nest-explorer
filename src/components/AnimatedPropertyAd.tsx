@@ -49,20 +49,18 @@ const AnimatedPropertyAd: React.FC<AnimatedPropertyAdProps> = ({ className }) =>
                   frameBorder="0"
                 ></iframe>
               ) : (
-                <div className="relative w-full h-full">
-                  <img 
-                    src={item.src} 
-                    alt={item.title} 
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 flex items-end">
-                    <div className="p-4 text-white">
-                      <h3 className="text-xl font-bold">{item.title}</h3>
-                      <p>{item.description}</p>
-                    </div>
-                  </div>
-                </div>
+                <img 
+                  src={item.src} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover"
+                />
               )}
+              <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/50 flex items-end">
+                <div className="p-4 text-white">
+                  <h3 className="text-xl font-bold">{item.title}</h3>
+                  <p>{item.description}</p>
+                </div>
+              </div>
             </div>
             <div className="p-4">
               <h3 className="font-bold text-lg mb-2">{item.title}</h3>
@@ -84,6 +82,7 @@ const AnimatedPropertyAd: React.FC<AnimatedPropertyAdProps> = ({ className }) =>
   );
 };
 
+// Updated ad items with only real estate media content
 const adItems = [
   {
     type: 'video',
@@ -97,8 +96,8 @@ const adItems = [
     ]
   },
   {
-    type: 'image',
-    src: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04',
+    type: 'video',
+    src: 'https://www.youtube.com/embed/o85pzTRYhmw',
     title: 'Modern Family Apartments',
     description: 'Spacious and comfortable living spaces for families in secure neighborhoods.',
     tags: [
@@ -108,14 +107,36 @@ const adItems = [
     ]
   },
   {
-    type: 'image',
-    src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    type: 'video',
+    src: 'https://www.youtube.com/embed/LXb3EKWsInQ',
     title: 'Countryside Villas',
     description: 'Peaceful and serene living with stunning views of nature.',
     tags: [
       { label: 'Nature Views', className: 'bg-emerald-100 text-emerald-800' },
       { label: 'Spacious Land', className: 'bg-amber-100 text-amber-800' },
       { label: 'Private Location', className: 'bg-indigo-100 text-indigo-800' }
+    ]
+  },
+  {
+    type: 'video',
+    src: 'https://www.youtube.com/embed/S57yhzGU5hQ',
+    title: 'Luxury Penthouses',
+    description: 'Experience urban living at its finest with our premium penthouses.',
+    tags: [
+      { label: 'City Views', className: 'bg-sky-100 text-sky-800' },
+      { label: 'Premium Amenities', className: 'bg-rose-100 text-rose-800' },
+      { label: 'Exclusive Access', className: 'bg-violet-100 text-violet-800' }
+    ]
+  },
+  {
+    type: 'video',
+    src: 'https://www.youtube.com/embed/X7UrQMpyVHM',
+    title: 'Beachfront Properties',
+    description: 'Wake up to breathtaking ocean views in our beachfront properties.',
+    tags: [
+      { label: 'Ocean Views', className: 'bg-cyan-100 text-cyan-800' },
+      { label: 'Private Beach', className: 'bg-teal-100 text-teal-800' },
+      { label: 'Luxury Living', className: 'bg-fuchsia-100 text-fuchsia-800' }
     ]
   }
 ];

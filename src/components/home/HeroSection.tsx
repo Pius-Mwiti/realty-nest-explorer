@@ -9,7 +9,7 @@ import {
   CarouselItem
 } from "@/components/ui/carousel";
 
-// Enhanced ad items with more video content
+// Enhanced ad items with real estate video and image content
 const adItems = [
   {
     type: 'video',
@@ -28,6 +28,18 @@ const adItems = [
     src: 'https://www.youtube.com/embed/LXb3EKWsInQ',
     title: 'Countryside Villas',
     description: 'Peaceful and serene living with stunning views of nature.',
+  },
+  {
+    type: 'video',
+    src: 'https://www.youtube.com/embed/S57yhzGU5hQ',
+    title: 'Luxury Penthouses',
+    description: 'Experience urban living at its finest with our premium penthouses.',
+  },
+  {
+    type: 'video',
+    src: 'https://www.youtube.com/embed/X7UrQMpyVHM',
+    title: 'Beachfront Properties',
+    description: 'Wake up to breathtaking ocean views in our beachfront properties.',
   }
 ];
 
@@ -76,6 +88,7 @@ const HeroSection = () => {
                 frameBorder="0"
               ></iframe>
             </div>
+            {/* Overlay with animation */}
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 animate-pulse-slow"></div>
           </div>
         ))}

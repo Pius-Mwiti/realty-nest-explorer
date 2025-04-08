@@ -48,7 +48,7 @@ const PropertyAd = ({ className }: PropertyAdProps) => {
         <iframe 
           width="100%" 
           height="100%" 
-          src={`https://www.youtube.com/embed/o85pzTRYhmw?si=3gUuFDkh7cNm8I6g${isPlaying ? '&autoplay=1' : ''}`}
+          src={`https://www.youtube.com/embed/jssO8-5qmag?si=3gUuFDkh7cNm8I6g${isPlaying ? '&autoplay=1' : ''}`}
           title="Property Video Tour" 
           frameBorder="0" 
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
