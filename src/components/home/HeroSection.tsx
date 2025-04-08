@@ -1,13 +1,37 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Search, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+
+// Import the ad items data from AnimatedPropertyAd
+const adItems = [
+  {
+    type: 'video',
+    src: 'https://www.youtube.com/embed/jssO8-5qmag',
+    title: 'Luxury Homes in Prime Locations',
+    description: 'Discover our exclusive collection of luxury properties across Nairobi.',
+  },
+  {
+    type: 'image',
+    src: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04',
+    title: 'Modern Family Apartments',
+    description: 'Spacious and comfortable living spaces for families in secure neighborhoods.',
+  },
+  {
+    type: 'image',
+    src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    title: 'Countryside Villas',
+    description: 'Peaceful and serene living with stunning views of nature.',
+  }
+];
 
 const HeroSection = () => {
   const navigate = useNavigate();
   const [location, setLocation] = useState('');
   const [propertyType, setPropertyType] = useState('');
+  const [currentBgIndex, setCurrentBgIndex] = useState(0);
+  const bgRef = useRef<HTMLDivElement>(null);
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,14 +43,44 @@ const HeroSection = () => {
     navigate(`/properties?${params.toString()}`);
   };
   
+  // Effect to animate background transitions
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentBgIndex(prevIndex => (prevIndex + 1) % adItems.length);
+    }, 7000); // Change every 7 seconds
+    
+    return () => clearInterval(interval);
+  }, []);
+  
   return (
-    <section className="relative h-[85vh] min-h-[600px] flex items-center">
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" 
-          className="w-full h-full object-cover"
-          alt="Nairobi real estate"
-        />
+    <section className="relative h-[85vh] min-h-[600px] flex items-center overflow-hidden">
+      {/* Background items container */}
+      <div className="absolute inset-0 z-0" ref={bgRef}>
+        {adItems.map((item, index) => (
+          <div 
+            key={index} 
+            className={`absolute inset-0 transition-opacity duration-1000 ${index === currentBgIndex ? 'opacity-100' : 'opacity-0'}`}
+          >
+            {item.type === 'video' ? (
+              <div className="relative w-full h-full">
+                <iframe 
+                  src={`${item.src}?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=jssO8-5qmag`}
+                  title={item.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  className="w-full h-full object-cover"
+                  style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0 }}
+                  frameBorder="0"
+                ></iframe>
+              </div>
+            ) : (
+              <img 
+                src={item.src} 
+                alt={item.title} 
+                className="w-full h-full object-cover"
+              />
+            )}
+          </div>
+        ))}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30"></div>
       </div>
       

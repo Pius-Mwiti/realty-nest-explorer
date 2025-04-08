@@ -6,7 +6,6 @@ import HeroSection from '../components/home/HeroSection';
 import FeaturedProperties from '../components/home/FeaturedProperties';
 import PropertyTypeSection from '../components/home/PropertyTypeSection';
 import LocationsSection from '../components/home/LocationsSection';
-import AnimatedPropertyAd from '../components/AnimatedPropertyAd';
 import CTASection from '../components/home/CTASection';
 import { properties, getFeaturedProperties } from '../data/properties';
 import { Button } from '@/components/ui/button';
@@ -41,14 +40,6 @@ const Index = () => {
       <HeroSection />
       <FeaturedProperties properties={featuredProperties} />
       <PropertyTypeSection />
-      
-      <section className="py-12 bg-gradient-to-b from-white to-slate-50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">Featured Property</h2>
-          <AnimatedPropertyAd className="max-w-4xl mx-auto hover-scale" />
-        </div>
-      </section>
-      
       <LocationsSection />
       
       <section id="recent-properties" className="py-20 bg-white">
