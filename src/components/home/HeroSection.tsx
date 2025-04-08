@@ -3,8 +3,13 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Search, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useNavigate } from 'react-router-dom';
+import { 
+  Carousel,
+  CarouselContent,
+  CarouselItem
+} from "@/components/ui/carousel";
 
-// Import the ad items data from AnimatedPropertyAd
+// Enhanced ad items with more video content
 const adItems = [
   {
     type: 'video',
@@ -13,14 +18,14 @@ const adItems = [
     description: 'Discover our exclusive collection of luxury properties across Nairobi.',
   },
   {
-    type: 'image',
-    src: 'https://images.unsplash.com/photo-1721322800607-8c38375eef04',
+    type: 'video',
+    src: 'https://www.youtube.com/embed/o85pzTRYhmw',
     title: 'Modern Family Apartments',
     description: 'Spacious and comfortable living spaces for families in secure neighborhoods.',
   },
   {
-    type: 'image',
-    src: 'https://images.unsplash.com/photo-1472396961693-142e6e269027',
+    type: 'video',
+    src: 'https://www.youtube.com/embed/LXb3EKWsInQ',
     title: 'Countryside Villas',
     description: 'Peaceful and serene living with stunning views of nature.',
   }
@@ -61,27 +66,19 @@ const HeroSection = () => {
             key={index} 
             className={`absolute inset-0 transition-opacity duration-1000 ${index === currentBgIndex ? 'opacity-100' : 'opacity-0'}`}
           >
-            {item.type === 'video' ? (
-              <div className="relative w-full h-full">
-                <iframe 
-                  src={`${item.src}?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=jssO8-5qmag`}
-                  title={item.title}
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  className="w-full h-full object-cover"
-                  style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0 }}
-                  frameBorder="0"
-                ></iframe>
-              </div>
-            ) : (
-              <img 
-                src={item.src} 
-                alt={item.title} 
+            <div className="relative w-full h-full">
+              <iframe 
+                src={`${item.src}?autoplay=1&mute=1&loop=1&controls=0&showinfo=0&playlist=${item.src.split('/').pop()}`}
+                title={item.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 className="w-full h-full object-cover"
-              />
-            )}
+                style={{ position: 'absolute', width: '100%', height: '100%', top: 0, left: 0 }}
+                frameBorder="0"
+              ></iframe>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30 animate-pulse-slow"></div>
           </div>
         ))}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/30"></div>
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-white">

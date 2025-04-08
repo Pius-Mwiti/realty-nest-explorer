@@ -11,6 +11,23 @@ import { properties, getFeaturedProperties } from '../data/properties';
 import { Button } from '@/components/ui/button';
 import PropertyCard from '../components/PropertyCard';
 
+// Add custom animation class
+const style = document.createElement('style');
+style.innerHTML = `
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 0.7;
+    }
+    50% {
+      opacity: 0.9;
+    }
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+`;
+document.head.appendChild(style);
+
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [showAllProperties, setShowAllProperties] = useState(false);
