@@ -161,7 +161,7 @@ const Header = () => {
               className="mt-3 block w-full px-4 py-3 text-base font-medium text-center text-white bg-primary rounded-md hover:bg-primary/90 transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Get in Touch
+            Get in Touch
             </Link>
           </div>
         </div>

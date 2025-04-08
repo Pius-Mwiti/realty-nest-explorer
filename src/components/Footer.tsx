@@ -96,7 +96,7 @@ const Footer = () => {
             <Link to="/privacy" className="hover:text-primary transition-colors">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-primary transition-colors">Terms of Service</Link>
           </div>
-          <p className="mt-4 italic">Project developed by: Pius Mwiti James (Smart Minds Technology +254729990696)</p>
+          <p className="mt-4 italic">Developed by: Pius Mwiti James (Mirrors Technology +254729990696)</p>
         </div>
       </div>
     </footer>
