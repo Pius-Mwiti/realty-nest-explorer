@@ -14,15 +14,14 @@ const AdminLogin = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
-  // This is just a mock implementation for demonstration
-  // In a real app, this would verify with a secure backend
+  // Update to use the specified admin credentials
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
     
-    // Simulate API call
+    // Use the specified credentials
     setTimeout(() => {
-      if (email === 'admin@smarthomes.com' && password === 'admin123') {
+      if (email === 'daviszack043@gmail.com' && password === 'zack1234') {
         // Store admin authentication token in localStorage
         localStorage.setItem('adminAuth', 'true');
         localStorage.setItem('adminEmail', email);

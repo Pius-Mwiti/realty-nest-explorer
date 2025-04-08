@@ -41,6 +41,21 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   return <>{children}</>;
 };
 
+// Admin route - not shown in main navigation
+const AdminRoute = () => {
+  // This component exists so we can potentially add admin-specific layouts in the future
+  return (
+    <Routes>
+      <Route path="/login" element={<AdminLogin />} />
+      <Route path="/dashboard" element={
+        <ProtectedRoute>
+          <AdminDashboard />
+        </ProtectedRoute>
+      } />
+    </Routes>
+  );
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
@@ -79,13 +94,8 @@ const App = () => (
             </PageWithAd>
           } />
           
-          {/* Admin Routes */}
-          <Route path="/admin/login" element={<AdminLogin />} />
-          <Route path="/admin/dashboard" element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          } />
+          {/* Admin Routes - Not visible in navigation */}
+          <Route path="/admin/*" element={<AdminRoute />} />
           
           <Route path="*" element={<NotFound />} />
         </Routes>
